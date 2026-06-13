@@ -8,6 +8,11 @@ const productLinks = {
 const shopifyLinks = productLinks;
 
 const imageSlots = ['main.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'];
+const productImageRegistry = {
+  bambooCottonBuds: {
+    de: ['Main.jpeg', 'WS.1_DE.png', 'WS.2_DE.png', 'WS.3_DE.png', 'WS.4_DE.png']
+  }
+};
 const translations = {
   en: {
     seo:{title:'Extendio | Practical beauty and everyday care products',description:'Extendio is a European brand based in Alicante, Spain, creating practical beauty, hygiene, hair accessories and everyday care products.'},
@@ -31,7 +36,9 @@ translations.ru = JSON.parse(JSON.stringify(translations.en));Object.assign(tran
 
 let currentLang = localStorage.getItem('extendioLang') || 'en';
 function t(path){return path.split('.').reduce((o,k)=>o&&o[k],translations[currentLang]) ?? path}
-function renderProducts(){const wrap=document.querySelector('#productsList');wrap.innerHTML='';t('productData').forEach((p)=>{const card=document.createElement('article');card.className='product-card reveal';const imgPath=`assets/products/${p.slug}/${currentLang}/main.jpg`;card.innerHTML=`<div class="product-media"><img src="${imgPath}" alt="${p.name}" hidden><div class="image-placeholder"><span>${p.name}<small>Future images: assets/products/${p.slug}/${currentLang}/{${imageSlots.join(', ')}}</small></span></div></div><div class="product-body"><h3>${p.name}</h3><p>${p.description}</p><ul class="benefits">${p.benefits.map(b=>`<li>${b}</li>`).join('')}</ul><a class="button button--primary" href="${productLinks[p.key]}">${t('products.view')}</a></div>`;const img=card.querySelector('img'),ph=card.querySelector('.image-placeholder');img.addEventListener('load',()=>{img.hidden=false;ph.hidden=true});img.addEventListener('error',()=>{img.hidden=true;ph.hidden=false});wrap.append(card);});observeReveals();}
+function getProductImages(product){return productImageRegistry[product.key]?.[currentLang] || imageSlots}
+function imagePath(product,fileName){return `assets/products/${product.slug}/${currentLang}/${fileName}`}
+function renderProducts(){const wrap=document.querySelector('#productsList');wrap.innerHTML='';t('productData').forEach((p)=>{const card=document.createElement('article');card.className='product-card reveal';const productImages=getProductImages(p);const imgPath=imagePath(p,productImages[0]);card.innerHTML=`<div class="product-media"><img src="${imgPath}" alt="${p.name}" hidden><div class="image-placeholder"><span>${p.name}<small>Future images: assets/products/${p.slug}/${currentLang}/{${productImages.join(', ')}}</small></span></div></div><div class="product-body"><h3>${p.name}</h3><p>${p.description}</p><ul class="benefits">${p.benefits.map(b=>`<li>${b}</li>`).join('')}</ul><a class="button button--primary" href="${productLinks[p.key]}">${t('products.view')}</a></div>`;const img=card.querySelector('img'),ph=card.querySelector('.image-placeholder');img.addEventListener('load',()=>{img.hidden=false;ph.hidden=true});img.addEventListener('error',()=>{img.hidden=true;ph.hidden=false});wrap.append(card);});observeReveals();}
 function renderValues(){document.querySelector('#valuesGrid').innerHTML=t('values').map(v=>`<article class="value-card reveal"><strong>${v[0]}</strong><p>${v[1]}</p></article>`).join('');}
 function applyLang(lang){currentLang=translations[lang]?lang:'en';localStorage.setItem('extendioLang',currentLang);document.documentElement.lang=currentLang;document.title=t('seo.title');document.querySelector('meta[name="description"]').setAttribute('content',t('seo.description'));document.querySelector('meta[property="og:title"]').setAttribute('content',t('seo.title'));document.querySelector('meta[property="og:description"]').setAttribute('content',t('seo.description'));document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n)});document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===currentLang)));renderValues();renderProducts();}
 function initLogo(){const img=document.querySelector('.brand__image');const text=document.querySelector('.site-header .brand__text');if(!img||!text)return;const showText=()=>{img.hidden=true;text.hidden=false};const showImage=()=>{img.hidden=false;text.hidden=true};img.addEventListener('load',showImage);img.addEventListener('error',showText);if(img.complete){img.naturalWidth>0?showImage():showText();}}
