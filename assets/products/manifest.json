@@ -1,0 +1,112 @@
+{
+  "bamboo-cotton-buds": {
+    "de": [
+      "Main.jpeg",
+      "WS.1_DE.png",
+      "WS.2_DE.png",
+      "WS.3_DE.png",
+      "WS.4_DE.png"
+    ],
+    "en": [
+      "MAIN.jpeg"
+    ],
+    "es": [
+      "MAIN.jpeg",
+      "WS.1_ES.png",
+      "WS.2_ES.png",
+      "WS.3_ES.png"
+    ],
+    "ru": [
+      "MAIN.jpeg"
+    ]
+  },
+  "hair-brush": {
+    "de": [
+      "22.jpg",
+      "33.jpg",
+      "6.jpg",
+      "7 2.jpg",
+      "blue1.jpg",
+      "Hairbrush black.jpg"
+    ],
+    "en": [
+      "1.jpg",
+      "22.jpg",
+      "44.jpg",
+      "7 2.jpg",
+      "blue2.jpg"
+    ],
+    "es": [
+      "ChatGPT Image 17 янв. 2026 г., 10_06_52.jpeg",
+      "ChatGPT Image 17 янв. 2026 г., 10_08_09.jpeg",
+      "ChatGPT Image 17 янв. 2026 г., 10_09_33.jpeg",
+      "ChatGPT Image 17 янв. 2026 г., 10_11_00.jpeg",
+      "ChatGPT Image 17 янв. 2026 г., 10_20_28.jpeg"
+    ],
+    "ru": [
+      "1.jpg",
+      "22.jpg",
+      "44.jpg",
+      "7 1.jpg",
+      "blue2.jpg"
+    ]
+  },
+  "mini-brush": {
+    "de": [
+      "28788.jpg",
+      "28794.jpg",
+      "28798.jpg",
+      "28801.jpg",
+      "28806.jpg",
+      "28809.jpg",
+      "28810.jpg",
+      "28811.jpg",
+      "28818.jpg",
+      "28857.jpg"
+    ],
+    "en": [
+      "19.jpg",
+      "20.jpg",
+      "21.jpg",
+      "22.jpg",
+      "24.jpg",
+      "28809.jpg",
+      "28810.jpg",
+      "28818.jpg",
+      "28861.jpg"
+    ],
+    "es": [
+      "28795.jpg",
+      "28807.jpg",
+      "28811.jpg"
+    ],
+    "ru": [
+      "28795.jpg",
+      "28807.jpg",
+      "28811.jpg",
+      "28858.jpg"
+    ]
+  },
+  "hair-clips": {
+    "de": [
+      "01 01.jpg",
+      "02.01.jpg"
+    ],
+    "en": [
+      "01 01.jpg",
+      "01.02.jpg",
+      "02.01.jpg",
+      "02.02.jpg"
+    ],
+    "es": [
+      "1 новый (1 сет).jpg",
+      "2.jpg",
+      "5.jpg"
+    ],
+    "ru": [
+      "01.02.jpg",
+      "02.02.jpg",
+      "1 новый (1 сет).jpg"
+    ]
+  }
+}
