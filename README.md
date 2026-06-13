@@ -28,15 +28,15 @@ Languages are `en`, `de`, `es`, and `ru`.
 
 All visible website text is stored in the `translations` object in `src/main.js`. Edit the matching language block (`en`, `de`, `es`, or `ru`) to update navigation, SEO text, product copy, contact labels and footer text.
 
-## Shopify placeholder links
+## Temporary Shopify links
 
-`src/main.js` contains a `productLinks` / `shopifyLinks` object with temporary values:
+`src/main.js` contains a `productLinks` / `shopifyLinks` object with temporary contact-section values:
 
 ```js
-hairBrush: '#shopify-hair-brush'
-miniBrush: '#shopify-mini-brush'
-bambooCottonBuds: '#shopify-bamboo-cotton-buds'
-hairClips: '#shopify-hair-clips'
+hairBrush: '#contact'
+miniBrush: '#contact'
+bambooCottonBuds: '#contact'
+hairClips: '#contact'
 ```
 
 Replace these values with real Shopify product URLs when the store is ready. No Shopify API, Buy Button script or checkout logic is integrated yet.
@@ -76,7 +76,7 @@ The manifest is organized by product slug and language:
 }
 ```
 
-The website first tries images for the currently selected language, then falls back through English, German, Spanish and Russian. If no usable image exists, or if an image fails to load, the site shows branded CSS placeholders instead of broken image icons.
+The website first tries images for the currently selected language, then falls back through English, German, Spanish and Russian. If no usable image exists, or if an image fails to load, the site shows branded fallback cards instead of broken image icons.
 
 ## GitHub Pages
 
