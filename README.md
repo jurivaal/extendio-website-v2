@@ -64,6 +64,16 @@ main.jpg
 5.jpg
 ```
 
+If a product uses different uploaded filenames, add those filenames to `productImageRegistry` in `src/main.js` so the website can load the real uploaded image. For example, the German bamboo cotton buds currently use:
+
+```text
+assets/products/bamboo-cotton-buds/de/Main.jpeg
+assets/products/bamboo-cotton-buds/de/WS.1_DE.png
+assets/products/bamboo-cotton-buds/de/WS.2_DE.png
+assets/products/bamboo-cotton-buds/de/WS.3_DE.png
+assets/products/bamboo-cotton-buds/de/WS.4_DE.png
+```
+
 Examples:
 
 ```text
