@@ -15,7 +15,7 @@
 <body>
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Extendio home">
-      <img class="brand__image" src="assets/logo/Logo_ Extendio.jpg" alt="" hidden>
+      <img class="brand__image" src="assets/logo/Logo_ Extendio.jpg" alt="Extendio logo" hidden>
       <span class="brand__text">Extendio</span>
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
@@ -50,12 +50,7 @@
           <span data-i18n="visual.collection">Extendio essentials</span>
           <small data-i18n="visual.note">Preview collection</small>
         </div>
-        <div class="hero-product-grid" aria-hidden="true">
-          <article class="preview-card preview-card--tall"><span data-i18n="visual.hairBrush">Hair Brush</span></article>
-          <article class="preview-card"><span data-i18n="visual.miniBrush">Mini Brush</span></article>
-          <article class="preview-card"><span data-i18n="visual.bambooCottonBuds">Bamboo Cotton Buds</span></article>
-          <article class="preview-card preview-card--dark"><span data-i18n="visual.hairClips">Hair Clips</span></article>
-        </div>
+        <div class="hero-product-grid" id="heroProductGrid" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -90,7 +85,7 @@
     <section class="section cta-section reveal" id="shop">
       <p class="eyebrow" data-i18n="shop.eyebrow">Shopify-ready</p>
       <h2 data-i18n="shop.title">Product pages can be connected when the store is ready.</h2>
-      <p data-i18n="shop.text">The buttons currently use clean placeholder links and can later be replaced with real Shopify product URLs.</p>
+      <p data-i18n="shop.text">Shopify product links will be added once the store URLs are ready.</p>
     </section>
 
     <section class="section contact" id="contact">
@@ -98,19 +93,18 @@
         <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p><h2 data-i18n="contact.title">Speak with Extendio</h2>
         <dl><dt data-i18n="contact.company">Brand / company name</dt><dd>Extendio</dd><dt data-i18n="contact.address">Address</dt><dd>Avenida Maestro José Garberi Serrano 11,<br>Bloque 5, portal 3, 1B<br>03540 Alicante, España</dd><dt data-i18n="contact.phone">Phone</dt><dd><a href="tel:+34634223898">+34 634 22 38 98</a></dd><dt data-i18n="contact.email">Email</dt><dd><a href="mailto:extendio.es@gmail.com">extendio.es@gmail.com</a></dd></dl>
       </div>
-      <form class="contact-form reveal" aria-label="Contact form placeholder">
-        <!-- Visual placeholder only. Backend, Shopify, Make or n8n automation can be connected later. -->
+      <form class="contact-form reveal" aria-label="Contact form">
         <label><span data-i18n="form.name">Name</span><input type="text" autocomplete="name"></label>
         <label><span data-i18n="form.email">Email</span><input type="email" autocomplete="email"></label>
         <label><span data-i18n="form.message">Message</span><textarea rows="5"></textarea></label>
-        <button class="button button--primary" type="button" data-i18n="form.button">Send message later</button>
-        <p class="form-note" data-i18n="form.note">This form is a design placeholder and is not connected to a backend yet.</p>
+        <a class="button button--primary" href="mailto:extendio.es@gmail.com" data-i18n="form.button">Send by email</a>
+        <p class="form-note" data-i18n="form.note">For now, messages open your email app and can be sent directly to Extendio.</p>
       </form>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div><a class="brand brand--footer" href="#top"><span class="brand__text">Extendio</span></a><p data-i18n="footer.summary">Practical beauty, hygiene and everyday care products from a European brand based in Spain.</p></div>
+    <div><a class="brand brand--footer" href="#top"><img class="brand__image" src="assets/logo/Logo_ Extendio.jpg" alt="Extendio logo"><span class="brand__text">Extendio</span></a><p data-i18n="footer.summary">Practical beauty, hygiene and everyday care products from a European brand based in Spain.</p></div>
     <nav aria-label="Footer navigation"><a href="#about" data-i18n="nav.about">About</a><a href="#products" data-i18n="nav.products">Products</a><a href="#contact" data-i18n="nav.contact">Contact</a></nav>
     <p class="footer-langs">EN · DE · ES · RU</p><p class="copyright" data-i18n="footer.copy">© 2026 Extendio. All rights reserved.</p>
   </footer>
