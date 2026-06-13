@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Extendio | Practical beauty and everyday care products</title>
+  <meta name="description" content="Extendio is a European brand based in Alicante, Spain, creating practical beauty, hygiene, hair accessories and everyday care products.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Extendio | Practical beauty and everyday care products">
+  <meta property="og:description" content="A premium multilingual brand website for Extendio, a European everyday care and beauty accessories brand based in Spain.">
+  <meta property="og:url" content="./">
+  <meta name="theme-color" content="#6d3df5">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Extendio home">
+      <img class="brand__image" src="assets/logo/extendio-logo.jpg" alt="Extendio logo" hidden>
+      <span class="brand__text">Extendio</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+      <a href="#products" data-i18n="nav.products">Products</a>
+      <a href="#materials" data-i18n="nav.materials">Materials</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="language-switcher" aria-label="Language switcher">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="hero__content reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow">European brand based in Spain</p>
+        <h1 id="hero-title" data-i18n="hero.title">Practical beauty essentials, designed for everyday comfort.</h1>
+        <p class="hero__lead" data-i18n="hero.lead">Extendio creates thoughtful beauty products, hair accessories, hygiene essentials and daily care items with a clean premium identity.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#products" data-i18n="hero.ctaProducts">Explore products</a>
+          <a class="button button--secondary" href="#contact" data-i18n="hero.ctaContact">Contact us</a>
+        </div>
+      </div>
+      <div class="hero__visual reveal" aria-label="Extendio product preview">
+        <div class="orb orb--one"></div><div class="orb orb--two"></div>
+        <div class="visual-card visual-card--large"><span data-i18n="visual.beauty">Beauty care</span></div>
+        <div class="visual-card visual-card--small"><span data-i18n="visual.hygiene">Hygiene essentials</span></div>
+        <div class="visual-card visual-card--accent"><span data-i18n="visual.accessories">Hair accessories</span></div>
+      </div>
+    </section>
+
+    <section class="section split" id="about">
+      <div class="reveal"><p class="eyebrow" data-i18n="about.eyebrow">About Extendio</p><h2 data-i18n="about.title">A focused European brand for useful daily routines.</h2></div>
+      <p class="section-text reveal" data-i18n="about.text">Extendio is a European brand based in Spain, focused on practical beauty products, hygiene essentials, hair accessories and thoughtful everyday items. Our aim is to make daily routines feel cleaner, easier and more considered.</p>
+    </section>
+
+    <section class="section" id="philosophy">
+      <div class="section-heading reveal"><p class="eyebrow" data-i18n="philosophy.eyebrow">Brand philosophy</p><h2 data-i18n="philosophy.title">Designed around the small moments people repeat every day.</h2></div>
+      <div class="values-grid" id="valuesGrid"></div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-heading reveal"><p class="eyebrow" data-i18n="products.eyebrow">Products</p><h2 data-i18n="products.title">Extendio product range</h2><p data-i18n="products.intro">Four practical product families prepared for future Shopify connection and real product imagery.</p></div>
+      <div class="products-list" id="productsList"></div>
+    </section>
+
+    <section class="section split panel" id="materials">
+      <div class="reveal"><p class="eyebrow" data-i18n="materials.eyebrow">Materials & thoughtful choices</p><h2 data-i18n="materials.title">Better choices where they genuinely make sense.</h2></div>
+      <p class="section-text reveal" data-i18n="materials.text">Extendio aims to choose better materials where possible and create products that are more thoughtful, practical and more responsible than generic alternatives. We use careful wording, avoid exaggerated claims and focus on real everyday usefulness.</p>
+    </section>
+
+    <section class="section split" id="europe">
+      <div class="reveal"><p class="eyebrow" data-i18n="europe.eyebrow">European brand</p><h2 data-i18n="europe.title">Based in Alicante, Spain. Built for a multilingual audience.</h2></div>
+      <p class="section-text reveal" data-i18n="europe.text">Extendio develops its product presentation for customers across Europe and communicates in English, German, Spanish and Russian.</p>
+    </section>
+
+    <section class="section cta-section reveal" id="shop">
+      <p class="eyebrow" data-i18n="shop.eyebrow">Shopify-ready</p>
+      <h2 data-i18n="shop.title">Product pages can be connected when the store is ready.</h2>
+      <p data-i18n="shop.text">The buttons currently use clean placeholder links and can later be replaced with real Shopify product URLs.</p>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact__info reveal">
+        <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p><h2 data-i18n="contact.title">Speak with Extendio</h2>
+        <dl><dt data-i18n="contact.company">Brand / company name</dt><dd>Extendio</dd><dt data-i18n="contact.address">Address</dt><dd>Avenida Maestro José Garberi Serrano 11,<br>Bloque 5, portal 3, 1B<br>03540 Alicante, España</dd><dt data-i18n="contact.phone">Phone</dt><dd><a href="tel:+34634223898">+34 634 22 38 98</a></dd><dt data-i18n="contact.email">Email</dt><dd><a href="mailto:extendio.es@gmail.com">extendio.es@gmail.com</a></dd></dl>
+      </div>
+      <form class="contact-form reveal" aria-label="Contact form placeholder">
+        <!-- Visual placeholder only. Backend, Shopify, Make or n8n automation can be connected later. -->
+        <label><span data-i18n="form.name">Name</span><input type="text" autocomplete="name"></label>
+        <label><span data-i18n="form.email">Email</span><input type="email" autocomplete="email"></label>
+        <label><span data-i18n="form.message">Message</span><textarea rows="5"></textarea></label>
+        <button class="button button--primary" type="button" data-i18n="form.button">Send message later</button>
+        <p class="form-note" data-i18n="form.note">This form is a design placeholder and is not connected to a backend yet.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><a class="brand brand--footer" href="#top"><span class="brand__text">Extendio</span></a><p data-i18n="footer.summary">Practical beauty, hygiene and everyday care products from a European brand based in Spain.</p></div>
+    <nav aria-label="Footer navigation"><a href="#about" data-i18n="nav.about">About</a><a href="#products" data-i18n="nav.products">Products</a><a href="#contact" data-i18n="nav.contact">Contact</a></nav>
+    <p class="footer-langs">EN · DE · ES · RU</p><p class="copyright" data-i18n="footer.copy">© 2026 Extendio. All rights reserved.</p>
+  </footer>
+  <script src="src/main.js" defer></script>
+</body>
+</html>
