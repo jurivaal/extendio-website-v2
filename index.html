@@ -15,7 +15,7 @@
 <body>
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Extendio home">
-      <img class="brand__image" src="assets/logo/extendio-logo.jpg" alt="Extendio logo" hidden>
+      <img class="brand__image" src="assets/logo/extendio-logo.jpg" alt="" hidden>
       <span class="brand__text">Extendio</span>
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
@@ -46,10 +46,16 @@
         </div>
       </div>
       <div class="hero__visual reveal" aria-label="Extendio product preview">
-        <div class="orb orb--one"></div><div class="orb orb--two"></div>
-        <div class="visual-card visual-card--large"><span data-i18n="visual.beauty">Beauty care</span></div>
-        <div class="visual-card visual-card--small"><span data-i18n="visual.hygiene">Hygiene essentials</span></div>
-        <div class="visual-card visual-card--accent"><span data-i18n="visual.accessories">Hair accessories</span></div>
+        <div class="hero__visual-header">
+          <span data-i18n="visual.collection">Extendio essentials</span>
+          <small data-i18n="visual.note">Preview collection</small>
+        </div>
+        <div class="hero-product-grid" aria-hidden="true">
+          <article class="preview-card preview-card--tall"><span data-i18n="visual.hairBrush">Hair Brush</span></article>
+          <article class="preview-card"><span data-i18n="visual.miniBrush">Mini Brush</span></article>
+          <article class="preview-card"><span data-i18n="visual.bambooCottonBuds">Bamboo Cotton Buds</span></article>
+          <article class="preview-card preview-card--dark"><span data-i18n="visual.hairClips">Hair Clips</span></article>
+        </div>
       </div>
     </section>
 
