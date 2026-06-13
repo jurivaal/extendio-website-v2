@@ -7,10 +7,30 @@ const productLinks = {
 };
 const shopifyLinks = productLinks;
 
-const imageSlots = ['main.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'];
 const productImageRegistry = {
+  hairBrush: {
+    en: ['assets/products/hair-brush/en/1.jpg', 'assets/products/hair-brush/en/22.jpg', 'assets/products/hair-brush/en/44.jpg', 'assets/products/hair-brush/en/7 2.jpg', 'assets/products/hair-brush/en/blue2.jpg'],
+    de: ['assets/products/hair-brush/de/22.jpg', 'assets/products/hair-brush/de/33.jpg', 'assets/products/hair-brush/de/6.jpg', 'assets/products/hair-brush/de/7 2.jpg', 'assets/products/hair-brush/de/Hairbrush black.jpg', 'assets/products/hair-brush/de/blue1.jpg'],
+    es: ['assets/products/hair-brush/es/ChatGPT Image 17 янв. 2026 г., 10_06_52.jpeg', 'assets/products/hair-brush/es/ChatGPT Image 17 янв. 2026 г., 10_08_09.jpeg', 'assets/products/hair-brush/es/ChatGPT Image 17 янв. 2026 г., 10_09_33.jpeg', 'assets/products/hair-brush/es/ChatGPT Image 17 янв. 2026 г., 10_11_00.jpeg', 'assets/products/hair-brush/es/ChatGPT Image 17 янв. 2026 г., 10_20_28.jpeg'],
+    ru: ['assets/products/hair-brush/ru/1.jpg', 'assets/products/hair-brush/ru/22.jpg', 'assets/products/hair-brush/ru/44.jpg', 'assets/products/hair-brush/ru/7 1.jpg', 'assets/products/hair-brush/ru/blue2.jpg']
+  },
+  miniBrush: {
+    en: ['assets/products/mini-brush/19.jpg', 'assets/products/mini-brush/20.jpg', 'assets/products/mini-brush/21.jpg', 'assets/products/mini-brush/22.jpg', 'assets/products/mini-brush/24.jpg', 'assets/products/mini-brush/28809.jpg', 'assets/products/mini-brush/28810.jpg', 'assets/products/mini-brush/28818.jpg', 'assets/products/mini-brush/28861.jpg'],
+    de: ['assets/products/mini-brush/de/28788.jpg', 'assets/products/mini-brush/de/28794.jpg', 'assets/products/mini-brush/de/28798.jpg', 'assets/products/mini-brush/de/28801.jpg', 'assets/products/mini-brush/de/28806.jpg', 'assets/products/mini-brush/de/28809.jpg', 'assets/products/mini-brush/de/28810.jpg', 'assets/products/mini-brush/de/28811.jpg', 'assets/products/mini-brush/de/28818.jpg', 'assets/products/mini-brush/de/28857.jpg'],
+    es: ['assets/products/mini-brush/es/28795.jpg', 'assets/products/mini-brush/es/28807.jpg', 'assets/products/mini-brush/es/28811.jpg'],
+    ru: ['assets/products/mini-brush/ru/28795.jpg', 'assets/products/mini-brush/ru/28807.jpg', 'assets/products/mini-brush/ru/28811.jpg', 'assets/products/mini-brush/ru/28858.jpg']
+  },
   bambooCottonBuds: {
-    de: ['Main.jpeg', 'WS.1_DE.png', 'WS.2_DE.png', 'WS.3_DE.png', 'WS.4_DE.png']
+    en: ['assets/products/bamboo-cotton-buds/en/MAIN.jpeg'],
+    de: ['assets/products/bamboo-cotton-buds/de/Main.jpeg', 'assets/products/bamboo-cotton-buds/de/WS.1_DE.png', 'assets/products/bamboo-cotton-buds/de/WS.2_DE.png', 'assets/products/bamboo-cotton-buds/de/WS.3_DE.png', 'assets/products/bamboo-cotton-buds/de/WS.4_DE.png'],
+    es: ['assets/products/bamboo-cotton-buds/es/MAIN.jpeg', 'assets/products/bamboo-cotton-buds/es/WS.1_ES.png', 'assets/products/bamboo-cotton-buds/es/WS.2_ES.png', 'assets/products/bamboo-cotton-buds/es/WS.3_ES.png'],
+    ru: ['assets/products/bamboo-cotton-buds/ru/MAIN.jpeg']
+  },
+  hairClips: {
+    en: ['assets/products/hair-clips/en/01 01.jpg', 'assets/products/hair-clips/en/01.02.jpg', 'assets/products/hair-clips/en/02.01.jpg', 'assets/products/hair-clips/en/02.02.jpg'],
+    de: ['assets/products/hair-clips/de/01 01.jpg', 'assets/products/hair-clips/de/02.01.jpg'],
+    es: ['assets/products/hair-clips/es/1 новый (1 сет).jpg', 'assets/products/hair-clips/es/2.jpg', 'assets/products/hair-clips/es/5.jpg'],
+    ru: ['assets/products/hair-clips/ru/01.02.jpg', 'assets/products/hair-clips/ru/02.02.jpg', 'assets/products/hair-clips/ru/1 новый (1 сет).jpg']
   }
 };
 const translations = {
@@ -36,9 +56,8 @@ translations.ru = JSON.parse(JSON.stringify(translations.en));Object.assign(tran
 
 let currentLang = localStorage.getItem('extendioLang') || 'en';
 function t(path){return path.split('.').reduce((o,k)=>o&&o[k],translations[currentLang]) ?? path}
-function getProductImages(product){return productImageRegistry[product.key]?.[currentLang] || imageSlots}
-function imagePath(product,fileName){return `assets/products/${product.slug}/${currentLang}/${fileName}`}
-function renderProducts(){const wrap=document.querySelector('#productsList');wrap.innerHTML='';t('productData').forEach((p)=>{const card=document.createElement('article');card.className='product-card reveal';const productImages=getProductImages(p);const imgPath=imagePath(p,productImages[0]);card.innerHTML=`<div class="product-media"><img src="${imgPath}" alt="${p.name}" hidden><div class="image-placeholder"><span>${p.name}<small>Future images: assets/products/${p.slug}/${currentLang}/{${productImages.join(', ')}}</small></span></div></div><div class="product-body"><h3>${p.name}</h3><p>${p.description}</p><ul class="benefits">${p.benefits.map(b=>`<li>${b}</li>`).join('')}</ul><a class="button button--primary" href="${productLinks[p.key]}">${t('products.view')}</a></div>`;const img=card.querySelector('img'),ph=card.querySelector('.image-placeholder');img.addEventListener('load',()=>{img.hidden=false;ph.hidden=true});img.addEventListener('error',()=>{img.hidden=true;ph.hidden=false});wrap.append(card);});observeReveals();}
+function getProductImages(product){return productImageRegistry[product.key]?.[currentLang] || []}
+function renderProducts(){const wrap=document.querySelector('#productsList');wrap.innerHTML='';t('productData').forEach((p)=>{const card=document.createElement('article');card.className='product-card reveal';const productImages=getProductImages(p);const imgPath=productImages[0] || '';const gallery=productImages.slice(1).map((src,i)=>`<img src="${src}" alt="${p.name} ${i+2}" loading="lazy">`).join('');card.innerHTML=`<div class="product-media"><img class="product-media__main" src="${imgPath}" alt="${p.name}" hidden><div class="image-placeholder"><span>${p.name}<small>${productImages.length ? 'Loading product image' : `Upload images to assets/products/${p.slug}/${currentLang}/`}</small></span></div>${gallery?`<div class="product-gallery">${gallery}</div>`:''}</div><div class="product-body"><h3>${p.name}</h3><p>${p.description}</p><ul class="benefits">${p.benefits.map(b=>`<li>${b}</li>`).join('')}</ul><a class="button button--primary" href="${productLinks[p.key]}">${t('products.view')}</a></div>`;const img=card.querySelector('.product-media__main'),ph=card.querySelector('.image-placeholder');img.addEventListener('load',()=>{img.hidden=false;ph.hidden=true});img.addEventListener('error',()=>{img.hidden=true;ph.hidden=false});wrap.append(card);});observeReveals();}
 function renderValues(){document.querySelector('#valuesGrid').innerHTML=t('values').map(v=>`<article class="value-card reveal"><strong>${v[0]}</strong><p>${v[1]}</p></article>`).join('');}
 function applyLang(lang){currentLang=translations[lang]?lang:'en';localStorage.setItem('extendioLang',currentLang);document.documentElement.lang=currentLang;document.title=t('seo.title');document.querySelector('meta[name="description"]').setAttribute('content',t('seo.description'));document.querySelector('meta[property="og:title"]').setAttribute('content',t('seo.title'));document.querySelector('meta[property="og:description"]').setAttribute('content',t('seo.description'));document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n)});document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===currentLang)));renderValues();renderProducts();}
 function initLogo(){const img=document.querySelector('.brand__image');const text=document.querySelector('.site-header .brand__text');if(!img||!text)return;const showText=()=>{img.hidden=true;text.hidden=false};const showImage=()=>{img.hidden=false;text.hidden=true};img.addEventListener('load',showImage);img.addEventListener('error',showText);if(img.complete){img.naturalWidth>0?showImage():showText();}}
