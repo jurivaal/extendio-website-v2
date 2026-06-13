@@ -1,14 +1,14 @@
 {
   "bamboo-cotton-buds": {
+    "en": [
+      "MAIN.jpeg"
+    ],
     "de": [
       "Main.jpeg",
       "WS.1_DE.png",
       "WS.2_DE.png",
       "WS.3_DE.png",
       "WS.4_DE.png"
-    ],
-    "en": [
-      "MAIN.jpeg"
     ],
     "es": [
       "MAIN.jpeg",
@@ -21,6 +21,13 @@
     ]
   },
   "hair-brush": {
+    "en": [
+      "1.jpg",
+      "22.jpg",
+      "44.jpg",
+      "7 2.jpg",
+      "blue2.jpg"
+    ],
     "de": [
       "22.jpg",
       "33.jpg",
@@ -28,13 +35,6 @@
       "7 2.jpg",
       "blue1.jpg",
       "Hairbrush black.jpg"
-    ],
-    "en": [
-      "1.jpg",
-      "22.jpg",
-      "44.jpg",
-      "7 2.jpg",
-      "blue2.jpg"
     ],
     "es": [
       "ChatGPT Image 17 янв. 2026 г., 10_06_52.jpeg",
@@ -51,7 +51,40 @@
       "blue2.jpg"
     ]
   },
+  "hair-clips": {
+    "en": [
+      "01 01.jpg",
+      "01.02.jpg",
+      "02.01.jpg",
+      "02.02.jpg"
+    ],
+    "de": [
+      "01 01.jpg",
+      "02.01.jpg"
+    ],
+    "es": [
+      "1 новый (1 сет).jpg",
+      "2.jpg",
+      "5.jpg"
+    ],
+    "ru": [
+      "01.02.jpg",
+      "02.02.jpg",
+      "1 новый (1 сет).jpg"
+    ]
+  },
   "mini-brush": {
+    "en": [
+      "19.jpg",
+      "20.jpg",
+      "21.jpg",
+      "22.jpg",
+      "24.jpg",
+      "28809.jpg",
+      "28810.jpg",
+      "28818.jpg",
+      "28861.jpg"
+    ],
     "de": [
       "28788.jpg",
       "28794.jpg",
@@ -64,17 +97,6 @@
       "28818.jpg",
       "28857.jpg"
     ],
-    "en": [
-      "19.jpg",
-      "20.jpg",
-      "21.jpg",
-      "22.jpg",
-      "24.jpg",
-      "28809.jpg",
-      "28810.jpg",
-      "28818.jpg",
-      "28861.jpg"
-    ],
     "es": [
       "28795.jpg",
       "28807.jpg",
@@ -85,28 +107,6 @@
       "28807.jpg",
       "28811.jpg",
       "28858.jpg"
-    ]
-  },
-  "hair-clips": {
-    "de": [
-      "01 01.jpg",
-      "02.01.jpg"
-    ],
-    "en": [
-      "01 01.jpg",
-      "01.02.jpg",
-      "02.01.jpg",
-      "02.02.jpg"
-    ],
-    "es": [
-      "1 новый (1 сет).jpg",
-      "2.jpg",
-      "5.jpg"
-    ],
-    "ru": [
-      "01.02.jpg",
-      "02.02.jpg",
-      "1 новый (1 сет).jpg"
     ]
   }
 }
