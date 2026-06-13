@@ -53,37 +53,30 @@ If this file is missing, the header automatically shows the text logo `Extendio`
 
 ## Product image upload
 
-Upload product images manually. Do not generate them with Codex. Each product/language folder can contain:
+Upload product images manually. Do not generate them with Codex and do not rename uploaded files just to match a fixed naming pattern. Product image loading is controlled by:
 
 ```text
-main.jpg
-1.jpg
-2.jpg
-3.jpg
-4.jpg
-5.jpg
+assets/products/manifest.json
 ```
 
-If a product uses different uploaded filenames, add those filenames to `productImageRegistry` in `src/main.js` so the website can load the real uploaded image. For example, the German bamboo cotton buds currently use:
+The product folders can contain any image filenames and common image extensions, for example `Main.jpeg`, `WS.1_DE.png`, `28788.jpg`, or names that include spaces. The website does **not** require product images to be named `main.jpg`, `1.jpg`, `2.jpg`, etc.
 
-```text
-assets/products/bamboo-cotton-buds/de/Main.jpeg
-assets/products/bamboo-cotton-buds/de/WS.1_DE.png
-assets/products/bamboo-cotton-buds/de/WS.2_DE.png
-assets/products/bamboo-cotton-buds/de/WS.3_DE.png
-assets/products/bamboo-cotton-buds/de/WS.4_DE.png
+When new images are uploaded later, update `assets/products/manifest.json` so the relevant product and language list includes the new filenames. The first image in each manifest list is used as the main product image. The remaining images are displayed as a supporting gallery strip.
+
+The manifest is organized by product slug and language:
+
+```json
+{
+  "bamboo-cotton-buds": {
+    "de": ["Main.jpeg", "WS.1_DE.png"],
+    "en": [],
+    "es": [],
+    "ru": []
+  }
+}
 ```
 
-Examples:
-
-```text
-assets/products/hair-brush/en/main.jpg
-assets/products/hair-brush/de/main.jpg
-assets/products/bamboo-cotton-buds/es/1.jpg
-assets/products/hair-clips/ru/3.jpg
-```
-
-When images are missing, the website shows branded CSS placeholders instead of broken image icons.
+The website first tries images for the currently selected language, then falls back through English, German, Spanish and Russian. If no usable image exists, or if an image fails to load, the site shows branded CSS placeholders instead of broken image icons.
 
 ## GitHub Pages
 
