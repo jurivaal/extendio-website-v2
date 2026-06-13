@@ -3,111 +3,83 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Extendio | Practical beauty and everyday care products</title>
-  <meta name="description" content="Extendio is a European brand based in Alicante, Spain, creating practical beauty, hygiene, hair accessories and everyday care products.">
+  <title>Extendio | Premium eco-conscious beauty essentials</title>
+  <meta name="description" content="Extendio is a European beauty and everyday care brand from Alicante, Spain, designed with premium eco-conscious materials and elegant routines in mind.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Extendio | Practical beauty and everyday care products">
-  <meta property="og:description" content="A premium multilingual brand website for Extendio, a European everyday care and beauty accessories brand based in Spain.">
+  <meta property="og:title" content="Extendio | Premium eco-conscious beauty essentials">
+  <meta property="og:description" content="Elegant everyday care, thoughtfully designed in Spain for beauty, hair care, hygiene and daily routines.">
   <meta property="og:url" content="./">
-  <meta name="theme-color" content="#6d3df5">
+  <meta name="theme-color" content="#0d0b0f">
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Extendio home">
-      <img class="brand__image" src="assets/logo/Logo_ Extendio.jpg" alt="Extendio logo" hidden>
+      <img class="brand__image" src="assets/logo/Logo_ Extendio.jpg" alt="Extendio logo">
       <span class="brand__text">Extendio</span>
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
     <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
       <a href="#about" data-i18n="nav.about">About</a>
-      <a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="#products" data-i18n="nav.products">Products</a>
       <a href="#materials" data-i18n="nav.materials">Materials</a>
+      <a href="#collection" data-i18n="nav.collection">Collection</a>
+      <a href="#packaging" data-i18n="nav.packaging">Packaging</a>
+      <a href="#europe" data-i18n="nav.europe">Europe</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="language-switcher" aria-label="Language switcher">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="de" aria-pressed="false">DE</button>
-      <button type="button" data-lang="es" aria-pressed="false">ES</button>
-      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="es" aria-pressed="false">ES</button><button type="button" data-lang="ru" aria-pressed="false">RU</button>
     </div>
   </header>
-
   <main>
-    <section class="hero section" aria-labelledby="hero-title">
+    <section class="hero section">
       <div class="hero__content reveal">
-        <p class="eyebrow" data-i18n="hero.eyebrow">European brand based in Spain</p>
-        <h1 id="hero-title" data-i18n="hero.title">Practical beauty essentials, designed for everyday comfort.</h1>
-        <p class="hero__lead" data-i18n="hero.lead">Extendio creates thoughtful beauty products, hair accessories, hygiene essentials and daily care items with a clean premium identity.</p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="#products" data-i18n="hero.ctaProducts">Explore products</a>
-          <a class="button button--secondary" href="#contact" data-i18n="hero.ctaContact">Contact us</a>
-        </div>
+        <p class="eyebrow" data-i18n="hero.eyebrow">European beauty essentials</p>
+        <h1 data-i18n="hero.title">Elegant everyday care, designed with intention.</h1>
+        <p class="hero__lead" data-i18n="hero.lead">Extendio brings a premium, clean and eco-conscious point of view to beauty, hair care, hygiene and daily routines.</p>
+        <div class="hero__actions"><a class="button button--primary" href="#collection" data-i18n="buttons.explore">Explore the collection</a><a class="button button--secondary" href="#contact" data-i18n="buttons.contact">Contact Extendio</a></div>
       </div>
-      <div class="hero__visual reveal" aria-label="Extendio product preview">
-        <div class="hero__visual-header">
-          <span data-i18n="visual.collection">Extendio essentials</span>
-          <small data-i18n="visual.note">Preview collection</small>
-        </div>
-        <div class="hero-product-grid" id="heroProductGrid" aria-hidden="true"></div>
-      </div>
+      <div class="brand-visual brand-visual--hero reveal" data-brand-image="assets/brand/hero-luxury-care.jpg" aria-label="Premium Extendio beauty care mood"><span class="visual-label" data-i18n="hero.visual">Black packaging, bamboo warmth and violet detail</span></div>
     </section>
 
-    <section class="section split" id="about">
-      <div class="reveal"><p class="eyebrow" data-i18n="about.eyebrow">About Extendio</p><h2 data-i18n="about.title">A focused European brand for useful daily routines.</h2></div>
-      <p class="section-text reveal" data-i18n="about.text">Extendio is a European brand based in Spain, focused on practical beauty products, hygiene essentials, hair accessories and thoughtful everyday items. Our aim is to make daily routines feel cleaner, easier and more considered.</p>
+    <section class="section manifesto" id="about">
+      <p class="eyebrow reveal" data-i18n="manifesto.eyebrow">Brand manifesto</p>
+      <h2 class="reveal" data-i18n="manifesto.title">Beauty, comfort and practical design in one considered daily ritual.</h2>
+      <p class="manifesto__text reveal" data-i18n="manifesto.text">Extendio creates everyday items that should look better, feel better and be easier to use. Clean European design, thoughtful material choices and a premium visual identity turn simple routines into more elegant moments.</p>
     </section>
 
-    <section class="section" id="philosophy">
-      <div class="section-heading reveal"><p class="eyebrow" data-i18n="philosophy.eyebrow">Brand philosophy</p><h2 data-i18n="philosophy.title">Designed around the small moments people repeat every day.</h2></div>
-      <div class="values-grid" id="valuesGrid"></div>
+    <section class="section mood-section">
+      <div class="brand-visual brand-visual--mood reveal" data-brand-image="assets/brand/beauty-routine.jpg"></div>
+      <div class="mood-copy reveal"><p class="eyebrow" data-i18n="mood.eyebrow">Visual brand mood</p><h2 data-i18n="mood.title">A cleaner look for everyday beauty.</h2><p data-i18n="mood.text">Beauty does not have to be complicated. We design simple daily objects with a cleaner look, a better feel and a more considered material direction.</p></div>
     </section>
 
-    <section class="section" id="products">
-      <div class="section-heading reveal"><p class="eyebrow" data-i18n="products.eyebrow">Products</p><h2 data-i18n="products.title">Extendio product range</h2><p data-i18n="products.intro">Four practical product families prepared for future Shopify connection and real product imagery.</p></div>
+    <section class="section materials" id="materials">
+      <div class="brand-visual brand-visual--materials reveal" data-brand-image="assets/brand/bamboo-materials.jpg"></div>
+      <div class="materials__content"><p class="eyebrow reveal" data-i18n="materials.eyebrow">Materials chosen with intention</p><h2 class="reveal" data-i18n="materials.title">Natural warmth, durable function and careful claims.</h2><p class="section-text reveal" data-i18n="materials.intro">Extendio balances comfort, durability, usability and more thoughtful material choices without overstating environmental claims.</p><div class="materials-grid" id="materialsList"></div></div>
+    </section>
+
+    <section class="section packaging" id="packaging">
+      <div class="packaging__copy reveal"><p class="eyebrow" data-i18n="packaging.eyebrow">Packaging detail</p><h2 data-i18n="packaging.title">A premium black box experience, designed for cleaner handling.</h2><p data-i18n="packaging.text">For Bamboo Cotton Buds, the black top-opening box supports a more comfortable routine: the cotton bud can be taken by the bamboo stem without touching the cotton tip or the rest of the sticks.</p><ul id="packagingList" class="detail-list"></ul></div>
+      <div class="brand-visual brand-visual--packaging reveal" data-brand-image="assets/brand/packaging-detail.jpg"></div>
+    </section>
+
+    <section class="section" id="collection">
+      <div class="section-heading reveal"><p class="eyebrow" data-i18n="collection.eyebrow">The Extendio collection</p><h2 data-i18n="collection.title">Four product families, presented with restraint.</h2><p data-i18n="collection.intro">A compact edit of beauty, hygiene and hair accessories prepared for future Shopify product pages.</p></div>
       <div class="products-list" id="productsList"></div>
     </section>
 
-    <section class="section panel" id="materials">
-      <div class="materials-intro">
-        <div class="reveal"><p class="eyebrow" data-i18n="materials.eyebrow">Materials & thoughtful choices</p><h2 data-i18n="materials.title">Materials chosen with intention</h2></div>
-        <p class="section-text reveal" data-i18n="materials.text">Extendio looks beyond appearance. For every product, we consider how it feels, how it performs, and what it is made from.</p>
-      </div>
-      <div class="materials-grid" id="materialsList"></div>
+    <section class="section color-story">
+      <div class="color-story__text reveal"><p class="eyebrow" data-i18n="colors.eyebrow">Color story</p><h2 data-i18n="colors.title">Curated color options for modern routines.</h2><p data-i18n="colors.text">The large hair brush and mini hair brush are each available in four curated color options, designed to fit different routines, bags and bathroom aesthetics.</p></div>
+      <div class="brand-visual brand-visual--colors reveal" data-brand-image="assets/brand/color-story.jpg"></div>
     </section>
 
-    <section class="section split" id="europe">
-      <div class="reveal"><p class="eyebrow" data-i18n="europe.eyebrow">European brand</p><h2 data-i18n="europe.title">Based in Alicante, Spain. Built for a multilingual audience.</h2></div>
-      <p class="section-text reveal" data-i18n="europe.text">Extendio develops its product presentation for customers across Europe and communicates in English, German, Spanish and Russian.</p>
-    </section>
+    <section class="section europe" id="europe"><p class="eyebrow reveal" data-i18n="europe.eyebrow">European brand</p><h2 class="reveal" data-i18n="europe.title">Based in Alicante, Spain. Built for a multilingual European audience.</h2><p class="section-text reveal" data-i18n="europe.text">Extendio combines European product presentation, practical everyday value and premium eco-conscious design, with communication in English, German, Spanish and Russian.</p></section>
 
-    <section class="section cta-section reveal" id="shop">
-      <p class="eyebrow" data-i18n="shop.eyebrow">Shopify-ready</p>
-      <h2 data-i18n="shop.title">Product pages can be connected when the store is ready.</h2>
-      <p data-i18n="shop.text">Shopify product links will be added once the store URLs are ready.</p>
-    </section>
+    <section class="section shopify reveal" id="shop"><p class="eyebrow" data-i18n="shop.eyebrow">Shopify-ready</p><h2 data-i18n="shop.title">Product pages and Shopify links will be connected later.</h2><p data-i18n="shop.text">Placeholder links remain in the code for hairBrush, miniBrush, bambooCottonBuds and hairClips until the store URLs are ready.</p></section>
 
-    <section class="section contact" id="contact">
-      <div class="contact__info reveal">
-        <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p><h2 data-i18n="contact.title">Speak with Extendio</h2>
-        <dl><dt data-i18n="contact.company">Brand / company name</dt><dd>Extendio</dd><dt data-i18n="contact.address">Address</dt><dd>Avenida Maestro José Garberi Serrano 11,<br>Bloque 5, portal 3, 1B<br>03540 Alicante, España</dd><dt data-i18n="contact.phone">Phone</dt><dd><a href="tel:+34634223898">+34 634 22 38 98</a></dd><dt data-i18n="contact.email">Email</dt><dd><a href="mailto:extendio.es@gmail.com">extendio.es@gmail.com</a></dd></dl>
-      </div>
-      <form class="contact-form reveal" aria-label="Contact form">
-        <label><span data-i18n="form.name">Name</span><input type="text" autocomplete="name"></label>
-        <label><span data-i18n="form.email">Email</span><input type="email" autocomplete="email"></label>
-        <label><span data-i18n="form.message">Message</span><textarea rows="5"></textarea></label>
-        <a class="button button--primary" href="mailto:extendio.es@gmail.com" data-i18n="form.button">Send by email</a>
-        <p class="form-note" data-i18n="form.note">For now, messages open your email app and can be sent directly to Extendio.</p>
-      </form>
-    </section>
+    <section class="section contact" id="contact"><div class="contact__info reveal"><p class="eyebrow" data-i18n="contact.eyebrow">Contact</p><h2 data-i18n="contact.title">Speak with Extendio</h2><dl><dt data-i18n="contact.company">Brand</dt><dd>Extendio</dd><dt data-i18n="contact.address">Address</dt><dd>Avenida Maestro José Garberi Serrano 11,<br>Bloque 5, portal 3, 1B<br>03540 Alicante, España</dd><dt data-i18n="contact.phone">Phone</dt><dd><a href="tel:+34634223898">+34 634 22 38 98</a></dd><dt data-i18n="contact.email">Email</dt><dd><a href="mailto:extendio.es@gmail.com">extendio.es@gmail.com</a></dd></dl></div><form class="contact-form reveal" aria-label="Contact form"><label><span data-i18n="form.name">Name</span><input type="text" autocomplete="name"></label><label><span data-i18n="form.email">Email</span><input type="email" autocomplete="email"></label><label><span data-i18n="form.message">Message</span><textarea rows="5"></textarea></label><a class="button button--primary" href="mailto:extendio.es@gmail.com" data-i18n="form.button">Send by email</a><p class="form-note" data-i18n="form.note">For now, messages open your email app and can be sent directly to Extendio.</p></form></section>
   </main>
-
-  <footer class="site-footer">
-    <div><a class="brand brand--footer" href="#top"><img class="brand__image" src="assets/logo/Logo_ Extendio.jpg" alt="Extendio logo"><span class="brand__text">Extendio</span></a><p data-i18n="footer.summary">Practical beauty, hygiene and everyday care products from a European brand based in Spain.</p></div>
-    <nav aria-label="Footer navigation"><a href="#about" data-i18n="nav.about">About</a><a href="#products" data-i18n="nav.products">Products</a><a href="#contact" data-i18n="nav.contact">Contact</a></nav>
-    <p class="footer-langs">EN · DE · ES · RU</p><p class="copyright" data-i18n="footer.copy">© 2026 Extendio. All rights reserved.</p>
-  </footer>
+  <footer class="site-footer"><div><a class="brand brand--footer" href="#top"><img class="brand__image" src="assets/logo/Logo_ Extendio.jpg" alt="Extendio logo"><span class="brand__text">Extendio</span></a><p data-i18n="footer.summary">Premium everyday beauty, hygiene and care essentials from a European brand based in Spain.</p></div><nav aria-label="Footer navigation"><a href="#about" data-i18n="nav.about">About</a><a href="#materials" data-i18n="nav.materials">Materials</a><a href="#collection" data-i18n="nav.collection">Collection</a><a href="#contact" data-i18n="nav.contact">Contact</a></nav><p class="footer-langs">EN · DE · ES · RU</p><p class="copyright" data-i18n="footer.copy">© 2026 Extendio. All rights reserved.</p></footer>
   <script src="src/main.js" defer></script>
 </body>
 </html>
