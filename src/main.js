@@ -27,8 +27,15 @@ translations.ru={seo:{title:'Extendio | Премиальные товары дл
 let currentLang=localStorage.getItem('extendioLang')||'en';
 const t=path=>path.split('.').reduce((o,k)=>o&&o[k],translations[currentLang])??path;
 const esc=v=>String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
-const mainImageCandidates=['Main.jpg','Main.jpeg','Main.png','main.jpg','main.jpeg','main.png','MAIN.jpg','MAIN.jpeg','MAIN.png'];
-const galleryImageCandidates=[1,2,3,4,5,6].flatMap(n=>[`${n}.jpg`,`${n}.jpeg`,`${n}.png`]);
+const mainImageCandidates=['Main.png','Main.jpg','Main.jpeg','Main.webp','main.png','main.jpg','main.jpeg','main.webp','MAIN.png','MAIN.jpg','MAIN.jpeg','MAIN.webp'];
+const galleryImageCandidates=[1,2,3,4,5,6].flatMap(n=>[`${n}.png`,`${n}.jpg`,`${n}.jpeg`,`${n}.webp`]);
+const companyImageCandidates={
+ hero:['assets/company/hero.png','assets/company/hero.jpg','assets/company/hero.jpeg','assets/company/hero.webp'],
+ about:['assets/company/about.png','assets/company/about.jpg','assets/company/about.jpeg','assets/company/about.webp'],
+ materials:['assets/company/materials.png','assets/company/materials.jpg','assets/company/materials.jpeg','assets/company/materials.webp'],
+ packaging:['assets/company/packaging.png','assets/company/packaging.jpg','assets/company/packaging.jpeg','assets/company/packaging.webp'],
+ brandWorld:['assets/company/brand-world.png','assets/company/brand-world.jpg','assets/company/brand-world.jpeg','assets/company/brand-world.webp']
+};
 const imageCache=new Map();
 
 function testImage(src){
@@ -46,19 +53,25 @@ function productPath(slug,lang,file){return `assets/products/${slug}/${lang}/${f
 function productLangOrder(){return [currentLang,'en','de','es','ru'].filter((lang,index,self)=>self.indexOf(lang)===index)}
 async function resolveProductImages(product){
  const slug=productSlugs[product.key];
- const paths=[];
- for(const lang of productLangOrder()){
-  for(const file of mainImageCandidates) paths.push(productPath(slug,lang,file));
-  for(const file of galleryImageCandidates) paths.push(productPath(slug,lang,file));
- }
+ const langs=productLangOrder();
  const loaded=[];
- for(const src of paths){
-  const ok=await testImage(src);
-  if(ok&&!loaded.includes(ok)) loaded.push(ok);
-  if(loaded.length>=4) break;
+ for(const lang of langs){
+  for(const file of mainImageCandidates){
+   const ok=await testImage(productPath(slug,lang,file));
+   if(ok){loaded.push(ok);break;}
+  }
+  if(loaded.length) break;
+ }
+ for(const lang of langs){
+  for(const file of galleryImageCandidates){
+   const ok=await testImage(productPath(slug,lang,file));
+   if(ok&&!loaded.includes(ok)) loaded.push(ok);
+   if(loaded.length>=4) return {slug,images:loaded};
+  }
  }
  return {slug,images:loaded};
 }
+
 function renderMaterials(){document.querySelector('#materialsList').innerHTML=t('materials.items').map((m,i)=>`<article class="material-card reveal"><span class="material-icon">${i+1}</span><strong>${m[0]}</strong><p>${m[1]}</p></article>`).join('')}
 function renderPackaging(){document.querySelector('#packagingList').innerHTML=t('packaging.items').map(i=>`<li>${i}</li>`).join('')}
 function createProductPlaceholder(productName){return `<div class="image-placeholder"><span>${esc(productName)}</span></div>`}
@@ -74,23 +87,43 @@ async function renderProducts(){
    const media=card.querySelector('.product-media');
    if(!images.length) return;
    const thumbs=images.slice(1,4).map((src,i)=>`<img src="${esc(src)}" alt="${esc(p.name)} ${i+2}" loading="lazy">`).join('');
+   media.classList.add('has-image');
    media.innerHTML=`<img class="product-media__main" src="${esc(images[0])}" alt="${esc(p.name)}" loading="lazy">${thumbs?`<div class="product-gallery">${thumbs}</div>`:''}`;
    media.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.remove();if(!media.querySelector('img'))media.innerHTML=createProductPlaceholder(p.name)}));
   });
  }
  observeReveals();
 }
+async function firstLoadedImage(candidates){
+ for(const src of candidates){
+  const ok=await testImage(src);
+  if(ok) return ok;
+ }
+ return null;
+}
 function initBrandVisuals(){
- document.querySelectorAll('[data-brand-image]').forEach(el=>{
-  const primary=el.dataset.brandImage;
-  const fallback=el.dataset.fallbackImage;
-  testImage(primary).then(ok=>{
-   if(ok){el.classList.add('has-image');el.style.setProperty('--brand-image',`url("${ok}")`);return;}
+ document.querySelectorAll('[data-brand-key]').forEach(el=>{
+  const key=el.dataset.brandKey;
+  const candidates=companyImageCandidates[key]||[];
+  firstLoadedImage(candidates).then(ok=>{
+   if(ok){
+    el.classList.add('has-image');
+    el.classList.remove('has-fallback-image');
+    el.style.setProperty('--brand-image',`url("${ok}")`);
+    return;
+   }
+   const fallback=el.dataset.fallbackImage;
    if(!fallback) return;
-   testImage(fallback).then(fallbackOk=>{if(fallbackOk){el.classList.add('has-image','has-fallback-image');el.style.setProperty('--brand-image',`url("${fallbackOk}")`)}});
+   testImage(fallback).then(fallbackOk=>{
+    if(fallbackOk){
+     el.classList.add('has-image','has-fallback-image');
+     el.style.setProperty('--brand-image',`url("${fallbackOk}")`);
+    }
+   });
   });
  });
 }
+
 function applyLang(lang){currentLang=translations[lang]?lang:'en';localStorage.setItem('extendioLang',currentLang);document.documentElement.lang=currentLang;document.title=t('seo.title');document.querySelector('meta[name="description"]').content=t('seo.description');document.querySelector('meta[property="og:title"]').content=t('seo.title');document.querySelector('meta[property="og:description"]').content=t('seo.description');document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n)});document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===currentLang)));renderMaterials();renderPackaging();renderProducts();}
 function initLogo(){document.querySelectorAll('.brand').forEach(brand=>{const img=brand.querySelector('img'),text=brand.querySelector('.brand__text');img.addEventListener('error',()=>{img.hidden=true;text.hidden=false});text.hidden=false})}
 function observeReveals(){const els=document.querySelectorAll('.reveal:not(.is-visible)');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('is-visible'));return}const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12});els.forEach(e=>io.observe(e))}
