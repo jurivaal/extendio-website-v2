@@ -30,11 +30,39 @@ const esc=v=>String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g
 const mainImageCandidates=['Main.png','Main.jpg','Main.jpeg','Main.webp','main.png','main.jpg','main.jpeg','main.webp','MAIN.png','MAIN.jpg','MAIN.jpeg','MAIN.webp'];
 const galleryImageCandidates=[1,2,3,4,5,6].flatMap(n=>[`${n}.png`,`${n}.jpg`,`${n}.jpeg`,`${n}.webp`]);
 const companyImageCandidates={
- hero:['assets/company/hero.png','assets/company/hero.jpg','assets/company/hero.jpeg','assets/company/hero.webp'],
- about:['assets/company/about.png','assets/company/about.jpg','assets/company/about.jpeg','assets/company/about.webp'],
- materials:['assets/company/materials.png','assets/company/materials.jpg','assets/company/materials.jpeg','assets/company/materials.webp'],
- packaging:['assets/company/packaging.png','assets/company/packaging.jpg','assets/company/packaging.jpeg','assets/company/packaging.webp'],
- brandWorld:['assets/company/brand-world.png','assets/company/brand-world.jpg','assets/company/brand-world.jpeg','assets/company/brand-world.webp']
+ hero:[
+  'assets/brand/hero.png',
+  'assets/brand/hero.jpg',
+  'assets/brand/hero.jpeg',
+  'assets/brand/hero.webp'
+ ],
+ about:[
+  'assets/brand/about.png',
+  'assets/brand/about.jpg',
+  'assets/brand/about.jpeg',
+  'assets/brand/about.webp',
+  'assets/brand/hero.png'
+ ],
+ materials:[
+  'assets/brand/materials.png',
+  'assets/brand/materials.jpg',
+  'assets/brand/materials.jpeg',
+  'assets/brand/materials.webp'
+ ],
+ packaging:[
+  'assets/brand/packaging.png',
+  'assets/brand/packaging.jpg',
+  'assets/brand/packaging.jpeg',
+  'assets/brand/packaging.webp'
+ ],
+ brandWorld:[
+  'assets/brand/brand-world.png',
+  'assets/brand/brand-world.jpg',
+  'assets/brand/brand-world.jpeg',
+  'assets/brand/brand-world.webp',
+  'assets/brand/materials.png',
+  'assets/brand/hero.png'
+ ]
 };
 const imageCache=new Map();
 
