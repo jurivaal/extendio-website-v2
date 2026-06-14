@@ -1,42 +1,40 @@
 {
   "bamboo-cotton-buds": {
     "en": [
-      "MAIN.jpeg"
+      "Main.png"
     ],
     "de": [
-      "Main.jpeg",
-      "WS.1_DE.png",
-      "WS.2_DE.png",
+      "Main.png",
       "WS.3_DE.png",
       "WS.4_DE.png"
     ],
     "es": [
-      "MAIN.jpeg",
-      "WS.1_ES.png",
-      "WS.2_ES.png",
-      "WS.3_ES.png"
+      "Main.png",
+      "1.png"
     ],
     "ru": [
-      "MAIN.jpeg"
+      "Main.png"
     ]
   },
   "hair-brush": {
     "en": [
+      "Main.jpg",
       "1.jpg",
       "22.jpg",
-      "44.jpg",
       "7 2.jpg",
       "blue2.jpg"
     ],
     "de": [
+      "Main.jpg",
+      "2.jpg",
       "22.jpg",
       "33.jpg",
-      "6.jpg",
       "7 2.jpg",
       "blue1.jpg",
       "Hairbrush black.jpg"
     ],
     "es": [
+      "Main.jpeg",
       "ChatGPT Image 17 янв. 2026 г., 10_06_52.jpeg",
       "ChatGPT Image 17 янв. 2026 г., 10_08_09.jpeg",
       "ChatGPT Image 17 янв. 2026 г., 10_09_33.jpeg",
@@ -44,6 +42,7 @@
       "ChatGPT Image 17 янв. 2026 г., 10_20_28.jpeg"
     ],
     "ru": [
+      "Main.jpg",
       "1.jpg",
       "22.jpg",
       "44.jpg",
@@ -53,21 +52,25 @@
   },
   "hair-clips": {
     "en": [
+      "Main.jpg",
       "01 01.jpg",
       "01.02.jpg",
       "02.01.jpg",
       "02.02.jpg"
     ],
     "de": [
+      "Main.jpg",
       "01 01.jpg",
       "02.01.jpg"
     ],
     "es": [
+      "Main.jpg",
       "1 новый (1 сет).jpg",
       "2.jpg",
       "5.jpg"
     ],
     "ru": [
+      "Main.jpg",
       "01.02.jpg",
       "02.02.jpg",
       "1 новый (1 сет).jpg"
@@ -75,6 +78,7 @@
   },
   "mini-brush": {
     "en": [
+      "Main.jpg",
       "19.jpg",
       "20.jpg",
       "21.jpg",
@@ -86,6 +90,7 @@
       "28861.jpg"
     ],
     "de": [
+      "Main.jpg",
       "28788.jpg",
       "28794.jpg",
       "28798.jpg",
@@ -98,11 +103,14 @@
       "28857.jpg"
     ],
     "es": [
+      "Main.jpg",
+      "1.jpg",
       "28795.jpg",
       "28807.jpg",
       "28811.jpg"
     ],
     "ru": [
+      "Main.jpg",
       "28795.jpg",
       "28807.jpg",
       "28811.jpg",
