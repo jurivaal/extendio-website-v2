@@ -6,7 +6,8 @@
  const brandImages={hero:'assets/brand/brand-world.png',about:'assets/brand/about.png',materials:'assets/brand/materials.png',packaging:'assets/brand/packaging.png',brandWorld:'assets/brand/brand-world.png'};
  const cache=new Map();
  const manifestPromise=fetch('assets/products/manifest.json').then(r=>r.ok?r.json():{}).catch(()=>({}));
- const esc=value=>String(value).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+ const esc=value=>String(value).replace(/&/g,'&amp;').replaceAll(String.fromCharCode(34),'&quot;').replace(/</g,'&lt;');
+ let scheduled=false;
 
  function activeLang(){
   return document.documentElement.lang||localStorage.getItem('extendioLang')||'en';
@@ -64,9 +65,9 @@
   const signature=images.join('|');
   if(media.dataset.extendioSignature===signature) return;
   media.dataset.extendioSignature=signature;
-  const thumbs=images.slice(1,4).map((src,index)=>`<img src="${esc(src)}" alt="${esc(title)} ${index+2}" loading="lazy">`).join('');
+  const thumbs=images.slice(1,4).map((src,index)=>`<img src='${esc(src)}' alt='${esc(title)} ${index+2}' loading='lazy'>`).join('');
   media.classList.add('has-image');
-  media.innerHTML=`<img class="product-media__main" src="${esc(images[0])}" alt="${esc(title)}" loading="lazy">${thumbs?`<div class="product-gallery">${thumbs}</div>`:''}`;
+  media.innerHTML=`<img class='product-media__main' src='${esc(images[0])}' alt='${esc(title)}' loading='lazy'>${thumbs?`<div class='product-gallery'>${thumbs}</div>`:''}`;
   media.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>img.remove()));
  }
  async function fixProducts(){
@@ -89,20 +90,23 @@
    if(!ok) return;
    el.classList.add('has-image');
    el.classList.remove('has-fallback-image');
-   el.style.setProperty('--brand-image',`url("${imageUrl(ok)}")`);
+   el.style.setProperty('--brand-image',`url('${imageUrl(ok)}')`);
   }));
  }
  function runFixes(){
+  scheduled=false;
   fixBrandVisuals();
   fixProducts();
  }
  function scheduleFixes(){
-  [0,120,450,1000].forEach(delay=>window.setTimeout(runFixes,delay));
+  if(scheduled) return;
+  scheduled=true;
+  [0,120,450,1000,2200,4000].forEach(delay=>window.setTimeout(runFixes,delay));
  }
  document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',scheduleFixes));
  const list=document.querySelector('#productsList');
  if(list){
-  new MutationObserver(scheduleFixes).observe(list,{childList:true});
+  new MutationObserver(scheduleFixes).observe(list,{childList:true,subtree:true});
  }
  scheduleFixes();
 })();
