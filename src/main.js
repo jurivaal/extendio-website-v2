@@ -29,40 +29,13 @@ const t=path=>path.split('.').reduce((o,k)=>o&&o[k],translations[currentLang])??
 const esc=v=>String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const mainImageCandidates=['Main.png','Main.jpg','Main.jpeg','Main.webp','main.png','main.jpg','main.jpeg','main.webp','MAIN.png','MAIN.jpg','MAIN.jpeg','MAIN.webp'];
 const galleryImageCandidates=[1,2,3,4,5,6].flatMap(n=>[`${n}.png`,`${n}.jpg`,`${n}.jpeg`,`${n}.webp`]);
+const productManifestPromise=fetch('assets/products/manifest.json').then(response=>response.ok?response.json():{}).catch(()=>({}));
 const companyImageCandidates={
- hero:[
-  'assets/brand/hero.png',
-  'assets/brand/hero.jpg',
-  'assets/brand/hero.jpeg',
-  'assets/brand/hero.webp'
- ],
- about:[
-  'assets/brand/about.png',
-  'assets/brand/about.jpg',
-  'assets/brand/about.jpeg',
-  'assets/brand/about.webp',
-  'assets/brand/hero.png'
- ],
- materials:[
-  'assets/brand/materials.png',
-  'assets/brand/materials.jpg',
-  'assets/brand/materials.jpeg',
-  'assets/brand/materials.webp'
- ],
- packaging:[
-  'assets/brand/packaging.png',
-  'assets/brand/packaging.jpg',
-  'assets/brand/packaging.jpeg',
-  'assets/brand/packaging.webp'
- ],
- brandWorld:[
-  'assets/brand/brand-world.png',
-  'assets/brand/brand-world.jpg',
-  'assets/brand/brand-world.jpeg',
-  'assets/brand/brand-world.webp',
-  'assets/brand/materials.png',
-  'assets/brand/hero.png'
- ]
+ hero:['assets/brand/brand-world.png'],
+ about:['assets/brand/about.png'],
+ materials:['assets/brand/materials.png'],
+ packaging:['assets/brand/packaging.png'],
+ brandWorld:['assets/brand/brand-world.png']
 };
 const imageCache=new Map();
 
@@ -78,21 +51,29 @@ function testImage(src){
  return promise;
 }
 function productPath(slug,lang,file){return `assets/products/${slug}/${lang}/${file}`}
+function productRootPath(slug,file){return `assets/products/${slug}/${file}`}
 function productLangOrder(){return [currentLang,'en','de','es','ru'].filter((lang,index,self)=>self.indexOf(lang)===index)}
+function manifestProductFiles(manifest,slug,langs){
+ const product=manifest[slug]||{};
+ return langs.flatMap(lang=>product[lang]||[]).filter((file,index,self)=>self.indexOf(file)===index);
+}
+function legacyProductFiles(){return [...mainImageCandidates,...galleryImageCandidates]}
+async function firstExistingProductPath(slug,lang,file){
+ for(const src of [productPath(slug,lang,file),productRootPath(slug,file)]){
+  const ok=await testImage(src);
+  if(ok) return ok;
+ }
+ return null;
+}
 async function resolveProductImages(product){
  const slug=productSlugs[product.key];
  const langs=productLangOrder();
+ const manifest=await productManifestPromise;
+ const files=[...manifestProductFiles(manifest,slug,langs),...legacyProductFiles()].filter((file,index,self)=>self.indexOf(file)===index);
  const loaded=[];
- for(const lang of langs){
-  for(const file of mainImageCandidates){
-   const ok=await testImage(productPath(slug,lang,file));
-   if(ok){loaded.push(ok);break;}
-  }
-  if(loaded.length) break;
- }
- for(const lang of langs){
-  for(const file of galleryImageCandidates){
-   const ok=await testImage(productPath(slug,lang,file));
+ for(const file of files){
+  for(const lang of langs){
+   const ok=await firstExistingProductPath(slug,lang,file);
    if(ok&&!loaded.includes(ok)) loaded.push(ok);
    if(loaded.length>=4) return {slug,images:loaded};
   }
