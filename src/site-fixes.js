@@ -1,6 +1,6 @@
 (function(){
  const productSlugs={hairBrush:'hair-brush',miniBrush:'mini-brush',bambooCottonBuds:'bamboo-cotton-buds',hairClips:'hair-clips'};
- const productKeys=['hairBrush','miniBrush','bambooCottonBuds','bambooCottonBuds','hairClips'];
+ const productKeys=['hairBrush','miniBrush','bambooCottonBuds','hairClips'];
  const mainFiles=['Main.png','Main.jpg','Main.jpeg','Main.webp','main.png','main.jpg','main.jpeg','main.webp','MAIN.png','MAIN.jpg','MAIN.jpeg','MAIN.webp'];
  const galleryFiles=[1,2,3,4,5,6].flatMap(n=>[`${n}.png`,`${n}.jpg`,`${n}.jpeg`,`${n}.webp`]);
  const brandImages={hero:'assets/brand/brand-world.png',about:'assets/brand/about.png',materials:'assets/brand/materials.png',packaging:'assets/brand/packaging.png',brandWorld:'assets/brand/brand-world.png'};
