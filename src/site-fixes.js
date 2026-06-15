@@ -6,7 +6,7 @@
  const brandImages={hero:'assets/brand/brand-world.png',about:'assets/brand/about.png',materials:'assets/brand/materials.png',packaging:'assets/brand/packaging.png',brandWorld:'assets/brand/brand-world.png'};
  const signatureVisuals=[
   {className:'brand-signature__tile--brush',src:'assets/products/hair-brush/en/1.jpg',alt:'Extendio hair brush'},
-  {className:'brand-signature__tile--buds',src:'assets/products/bamboo-cotton-buds/de/Main.jpeg',alt:'Extendio bamboo cotton buds'},
+  {className:'brand-signature__tile--buds',src:'assets/brand/signature-buds.webp',alt:'Extendio bamboo cotton buds'},
   {className:'brand-signature__tile--clips',src:'assets/products/hair-clips/en/02.02.jpg',alt:'Extendio hair clips'}
  ];
  const copyOverrides={
