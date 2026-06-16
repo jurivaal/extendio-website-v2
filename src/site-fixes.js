@@ -3,18 +3,37 @@
  const productKeys=['hairBrush','miniBrush','bambooCottonBuds','hairClips'];
  const mainFiles=['Main.png','Main.jpg','Main.jpeg','Main.webp','main.png','main.jpg','main.jpeg','main.webp','MAIN.png','MAIN.jpg','MAIN.jpeg','MAIN.webp'];
  const galleryFiles=[1,2,3,4,5,6].flatMap(n=>[`${n}.png`,`${n}.jpg`,`${n}.jpeg`,`${n}.webp`]);
- const brandImages={hero:'assets/brand/brand-world.png',about:'assets/brand/about.png',materials:'assets/brand/materials.png',packaging:'assets/brand/packaging.png',brandWorld:'assets/brand/brand-world.png'};
+ const brandImages={about:'assets/brand/about.png',materials:'assets/brand/materials.png',packaging:'assets/brand/packaging.png'};
+ const brandCollages={
+  hero:[
+   {className:'brand-collage__item--buds',src:'assets/products/bamboo-cotton-buds/en/Main.jpeg',alt:'Extendio bamboo cotton buds'},
+   {className:'brand-collage__item--clips',src:'assets/products/hair-clips/en/02.01.jpg',alt:'Extendio hair clips'},
+   {className:'brand-collage__item--brush',src:'assets/products/hair-brush/en/Main.jpg',alt:'Extendio lilac hair brush'}
+  ],
+  mood:[
+   {className:'brand-collage__item--brush',src:'assets/products/hair-brush/en/Main.jpg',alt:'Extendio hair brush'},
+   {className:'brand-collage__item--buds',src:'assets/products/bamboo-cotton-buds/en/Main.jpeg',alt:'Extendio bamboo cotton buds'},
+   {className:'brand-collage__item--clips',src:'assets/products/hair-clips/en/02.01.jpg',alt:'Extendio hair clips'}
+  ],
+  colors:[
+   {className:'brand-collage__item--clips',src:'assets/products/hair-clips/en/02.01.jpg',alt:'Extendio hair clips'},
+   {className:'brand-collage__item--brush',src:'assets/products/hair-brush/en/Main.jpg',alt:'Extendio lilac hair brush'}
+  ]
+ };
  const signatureVisuals=[
-  {className:'brand-signature__tile--brush',src:'assets/products/hair-brush/en/1.jpg',alt:'Extendio hair brush'},
-  {className:'brand-signature__tile--buds',src:'assets/brand/signature-buds.webp',alt:'Extendio bamboo cotton buds'},
-  {className:'brand-signature__tile--clips',src:'assets/products/hair-clips/en/02.02.jpg',alt:'Extendio hair clips'}
+  {className:'brand-signature__tile--brush',src:'assets/products/hair-brush/en/Main.jpg',alt:'Extendio hair brush'},
+  {className:'brand-signature__tile--buds',src:'assets/products/bamboo-cotton-buds/en/Main.jpeg',alt:'Extendio bamboo cotton buds'},
+  {className:'brand-signature__tile--clips',src:'assets/products/hair-clips/en/02.01.jpg',alt:'Extendio hair clips'}
  ];
  const copyOverrides={
   en:{
    seo:{title:'Extendio | European everyday care from Spain',description:'Extendio is a European everyday-care brand from Alicante, Spain, presenting beauty, hygiene and hair-care essentials with a clean product identity.'},
    nav:{packaging:'Signature',europe:'Brand'},
-   hero:{eyebrow:'European everyday care',lead:'Beauty, hygiene and hair-care essentials shaped by clear materials, calm packaging and a practical daily point of view.'},
-   collection:{intro:'A compact selection of beauty, hygiene and hair-care accessories presented as one coherent Extendio product world.'},
+   hero:{eyebrow:'European everyday care',title:'Extendio beauty, hygiene and hair-care essentials.',lead:'A clean European brand world for practical daily products: hair brushes, hair clips and bamboo cotton buds presented with calm materials and a premium visual identity.'},
+   manifesto:{eyebrow:'About Extendio',title:'A brand card for useful daily care products.',text:'Extendio is based in Alicante, Spain, and brings together practical items for beauty, hygiene and hair routines. The brand is built around clean presentation, understandable materials and products that feel easy to use every day.'},
+   mood:{eyebrow:'Product world',title:'Beauty, hygiene and hair accessories in one calm system.',text:'The range is shown as a single shelf of useful daily essentials: soft hair accessories, practical brushes and bamboo cotton buds with warm natural cues.'},
+   collection:{intro:'Four focused product families for daily beauty, hygiene and hair-care routines.'},
+   colors:{eyebrow:'Color story',title:'Soft color accents that keep the brand light and clean.',text:'Hair clips and brushes bring lilac, coral, ivory and black into the range, while the overall presentation stays calm, natural and easy to read.'},
    signature:{eyebrow:'Brand signature',title:'One calm product world, not a set of scattered items.',text:'Extendio feels like a coherent beauty shelf: real hair brushes, bamboo cotton buds and hair clips connected by one language of materials, packaging and everyday practicality.',items:['Recognizable real product forms','Warm natural textures','Black, ivory and soft color accents']},
    europe:{eyebrow:'From Alicante, Spain',title:'A European everyday-care brand with a clean, practical point of view.',text:'Extendio presents considered beauty, hygiene and hair-care essentials with a calm visual identity, clear materials and a product experience designed for everyday use.'},
    form:{note:'Messages are sent directly to the Extendio team by email.'},
@@ -23,8 +42,11 @@
   de:{
    seo:{title:'Extendio | Europäische Alltagspflege aus Spanien',description:'Extendio ist eine europäische Marke für tägliche Pflege aus Alicante, Spanien, mit Essentials für Beauty, Hygiene und Haarpflege in einer klaren Produktidentität.'},
    nav:{packaging:'Signatur',europe:'Marke'},
-   hero:{eyebrow:'Europäische Alltagspflege',lead:'Beauty-, Hygiene- und Haarpflege-Essentials mit klaren Materialien, ruhiger Verpackung und einem praktischen Blick auf tägliche Routinen.'},
-   collection:{intro:'Eine kompakte Auswahl an Beauty-, Hygiene- und Haarpflege-Accessoires, präsentiert als klare Extendio Produktwelt.'},
+   hero:{eyebrow:'Europäische Alltagspflege',title:'Extendio Essentials für Beauty, Hygiene und Haarpflege.',lead:'Eine klare europäische Markenwelt für praktische Alltagsprodukte: Haarbürsten, Haarclips und Bambus-Wattestäbchen mit ruhigen Materialien und hochwertiger visueller Identität.'},
+   manifesto:{eyebrow:'Über Extendio',title:'Eine Markenkarte für nützliche tägliche Pflegeprodukte.',text:'Extendio hat seinen Sitz in Alicante, Spanien, und verbindet praktische Artikel für Beauty, Hygiene und Haarpflege. Die Marke steht für klare Präsentation, verständliche Materialien und Produkte, die sich im Alltag einfach nutzen lassen.'},
+   mood:{eyebrow:'Produktwelt',title:'Beauty, Hygiene und Haaraccessoires in einem ruhigen System.',text:'Das Sortiment wirkt wie ein gemeinsames Regal nützlicher Essentials: sanfte Haaraccessoires, praktische Bürsten und Bambus-Wattestäbchen mit warmen natürlichen Akzenten.'},
+   collection:{intro:'Vier fokussierte Produktfamilien für tägliche Beauty-, Hygiene- und Haarpflegeroutinen.'},
+   colors:{eyebrow:'Farbwelt',title:'Sanfte Farbakzente, die die Marke hell und klar halten.',text:'Haarclips und Bürsten bringen Flieder, Koralle, Elfenbein und Schwarz in die Linie, während die Gesamtpräsentation ruhig, natürlich und leicht verständlich bleibt.'},
    signature:{eyebrow:'Markensignatur',title:'Eine ruhige Produktwelt statt einzelner, verstreuter Objekte.',text:'Extendio wirkt wie ein stimmiges Beauty-Regal: echte Haarbürsten, Bambus-Wattestäbchen und Haarclips, verbunden durch eine gemeinsame Sprache aus Materialien, Verpackung und täglicher Praktikabilität.',items:['Wiedererkennbare echte Produktformen','Warme natürliche Texturen','Schwarz, Elfenbein und sanfte Farbakzente']},
    europe:{eyebrow:'Aus Alicante, Spanien',title:'Eine europäische Marke für tägliche Pflege mit klarem, praktischem Blick.',text:'Extendio präsentiert durchdachte Essentials für Beauty, Hygiene und Haarpflege mit ruhiger visueller Identität, klaren Materialien und einem Produkterlebnis für den täglichen Gebrauch.'},
    form:{note:'Nachrichten werden direkt per E-Mail an das Extendio Team gesendet.'},
@@ -33,8 +55,11 @@
   es:{
    seo:{title:'Extendio | Cuidado diario europeo desde España',description:'Extendio es una marca europea de cuidado diario desde Alicante, España, con esenciales de belleza, higiene y cuidado del cabello bajo una identidad de producto limpia.'},
    nav:{packaging:'Firma',europe:'Marca'},
-   hero:{eyebrow:'Cuidado diario europeo',lead:'Esenciales de belleza, higiene y cuidado del cabello con materiales claros, envase sereno y una mirada práctica para las rutinas diarias.'},
-   collection:{intro:'Una selección compacta de accesorios de belleza, higiene y cuidado del cabello presentada como un universo de producto Extendio coherente.'},
+   hero:{eyebrow:'Cuidado diario europeo',title:'Extendio esenciales de belleza, higiene y cuidado del cabello.',lead:'Un universo de marca europeo y limpio para productos prácticos de uso diario: cepillos, pinzas para el cabello y bastoncillos de bambú con materiales serenos e identidad visual premium.'},
+   manifesto:{eyebrow:'Sobre Extendio',title:'Una tarjeta de marca para productos útiles de cuidado diario.',text:'Extendio tiene sede en Alicante, España, y reúne artículos prácticos para belleza, higiene y rutinas de cabello. La marca se construye sobre una presentación limpia, materiales comprensibles y productos fáciles de usar cada día.'},
+   mood:{eyebrow:'Universo de producto',title:'Belleza, higiene y accesorios para el cabello en un sistema sereno.',text:'La gama se muestra como una misma repisa de esenciales útiles: accesorios suaves para el cabello, cepillos prácticos y bastoncillos de bambú con gestos naturales cálidos.'},
+   collection:{intro:'Cuatro familias de producto enfocadas en rutinas diarias de belleza, higiene y cuidado del cabello.'},
+   colors:{eyebrow:'Historia de color',title:'Acentos suaves de color que mantienen la marca clara y limpia.',text:'Las pinzas y los cepillos aportan lila, coral, marfil y negro a la gama, mientras la presentación general se mantiene serena, natural y fácil de leer.'},
    signature:{eyebrow:'Firma de marca',title:'Un universo de producto sereno, no una suma de piezas sueltas.',text:'Extendio se siente como una repisa de belleza coherente: cepillos reales, bastoncillos de bambú y pinzas para el cabello unidos por un mismo lenguaje de materiales, envase y practicidad diaria.',items:['Formas reales y reconocibles','Texturas naturales y cálidas','Acentos en negro, marfil y color suave']},
    europe:{eyebrow:'Desde Alicante, España',title:'Una marca europea de cuidado diario con una mirada limpia y práctica.',text:'Extendio presenta esenciales de belleza, higiene y cuidado del cabello con una identidad visual serena, materiales claros y una experiencia de producto pensada para el uso diario.'},
    form:{note:'Los mensajes se envían directamente al equipo de Extendio por correo electrónico.'},
@@ -43,8 +68,11 @@
   ru:{
    seo:{title:'Extendio | Европейский уход на каждый день из Испании',description:'Extendio — европейский бренд повседневного ухода из Аликанте, Испания: товары для красоты, гигиены и ухода за волосами с чистой продуктовой идентичностью.'},
    nav:{packaging:'Стиль',europe:'Бренд'},
-   hero:{eyebrow:'Европейский уход на каждый день',lead:'Товары для красоты, гигиены и ухода за волосами с понятными материалами, спокойной упаковкой и практичным взглядом на ежедневные рутины.'},
-   collection:{intro:'Компактная подборка товаров для красоты, гигиены и ухода за волосами, представленная как единый продуктовый мир Extendio.'},
+   hero:{eyebrow:'Европейский уход на каждый день',title:'Extendio: красота, гигиена и уход за волосами.',lead:'Чистый европейский бренд для практичных ежедневных товаров: расчёсок, заколок и бамбуковых ватных палочек с спокойными материалами и премиальной визуальной подачей.'},
+   manifesto:{eyebrow:'О Extendio',title:'Страница-визитка для полезных товаров ежедневного ухода.',text:'Extendio базируется в Аликанте, Испания, и объединяет практичные товары для красоты, гигиены и ухода за волосами. Бренд строится вокруг чистой презентации, понятных материалов и продуктов, которыми удобно пользоваться каждый день.'},
+   mood:{eyebrow:'Продуктовый мир',title:'Красота, гигиена и аксессуары для волос в одной спокойной системе.',text:'Линейка выглядит как единая полка полезных ежедневных предметов: мягкие аксессуары для волос, практичные расчёски и бамбуковые ватные палочки с тёплыми натуральными акцентами.'},
+   collection:{intro:'Четыре сфокусированные категории для ежедневной красоты, гигиены и ухода за волосами.'},
+   colors:{eyebrow:'История цвета',title:'Мягкие цветовые акценты без потери чистоты бренда.',text:'Заколки и расчёски добавляют в линейку сиреневый, коралловый, айвори и чёрный, а общая подача остаётся спокойной, натуральной и легко читаемой.'},
    signature:{eyebrow:'Почерк бренда',title:'Единый спокойный продуктовый мир, а не набор случайных предметов.',text:'Extendio ощущается как цельная beauty-полка: реальные щётки для волос, бамбуковые ватные палочки и заколки объединены одним языком материалов, упаковки и ежедневной практичности.',items:['Узнаваемые реальные формы продуктов','Тёплые натуральные фактуры','Чёрный, айвори и мягкие цветовые акценты']},
    europe:{eyebrow:'Из Аликанте, Испания',title:'Европейский бренд повседневного ухода с чистым и практичным взглядом.',text:'Extendio представляет продуманные товары для красоты, гигиены и ухода за волосами: спокойная визуальная идентичность, понятные материалы и ощущение продукта, созданное для ежедневного использования.'},
    form:{note:'Сообщение отправляется напрямую команде Extendio по электронной почте.'},
@@ -80,6 +108,30 @@
  function setMeta(selector,value){
   const meta=document.querySelector(selector);
   if(meta&&value) meta.setAttribute('content',value);
+ }
+ function brandCollageKey(el){
+  if(el.classList.contains('brand-visual--mood')) return 'mood';
+  if(el.classList.contains('brand-visual--colors')) return 'colors';
+  if(el.classList.contains('brand-visual--hero')) return 'hero';
+  return '';
+ }
+ function renderBrandCollages(){
+  document.querySelectorAll('.brand-visual--hero,.brand-visual--mood,.brand-visual--colors').forEach(el=>{
+   const key=brandCollageKey(el);
+   const items=brandCollages[key];
+   if(!items||el.dataset.collageReady===key) return;
+   el.dataset.collageReady=key;
+   el.classList.add('brand-collage',`brand-collage--${key}`);
+   el.classList.remove('has-image','has-fallback-image');
+   el.style.removeProperty('--brand-image');
+   el.innerHTML=`<div class='brand-collage__surface'>${items.map(item=>`<figure class='brand-collage__item ${item.className}'><img src='${esc(item.src)}' alt='${esc(item.alt)}' loading='lazy'></figure>`).join('')}</div>`;
+  });
+ }
+ function brandVisualSource(el){
+  if(el.classList.contains('brand-visual--story')) return brandImages.about;
+  if(el.classList.contains('brand-visual--materials')) return brandImages.materials;
+  if(el.classList.contains('brand-visual--packaging')) return brandImages.packaging;
+  return brandImages[el.dataset.brandKey]||el.dataset.fallbackImage;
  }
  function injectHeaderWordmark(){
   const header=document.querySelector('.site-header');
@@ -136,6 +188,21 @@
    .header-wordmark__copy{display:grid;line-height:1}
    .header-wordmark__name{font-family:Georgia,Times New Roman,serif;font-style:italic;font-weight:800;font-size:1.7rem;letter-spacing:0;color:#18211c}
    .header-wordmark__tag{margin-top:.1rem;font-size:.56rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#2f6b57}
+   .brand-collage{background:linear-gradient(135deg,#fbfaf4 0%,#ffffff 46%,#edf3ea 100%);isolation:isolate}
+   .brand-collage:not(.has-image):before,.brand-collage:not(.has-image):after{display:none}
+   .brand-collage__surface{position:absolute;inset:0;overflow:hidden;background:linear-gradient(135deg,#fbfaf4 0%,#ffffff 50%,#eef4ed 100%)}
+   .brand-collage__surface:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(31,77,64,.09),transparent 34%,rgba(213,178,76,.08) 72%,transparent)}
+   .brand-collage__surface:after{content:"";position:absolute;left:-12%;right:-12%;bottom:-30%;height:48%;background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(224,234,222,.9));transform:rotate(-4deg)}
+   .brand-collage__item{position:absolute;z-index:1;display:flex;align-items:center;justify-content:center;margin:0;overflow:hidden;border:1px solid rgba(31,77,64,.16);border-radius:8px;background:#fff;box-shadow:0 22px 48px rgba(31,45,39,.14);transform:rotate(var(--rotate,0deg))}
+   .brand-collage__item img{display:block;width:100%;height:100%;object-fit:contain;padding:clamp(.55rem,1.7vw,1rem)}
+   .brand-collage--hero .brand-collage__item--buds{left:6%;bottom:7%;width:34%;height:42%;--rotate:-2deg}
+   .brand-collage--hero .brand-collage__item--clips{left:35%;bottom:14%;width:28%;height:31%;--rotate:5deg}
+   .brand-collage--hero .brand-collage__item--brush{right:7%;bottom:6%;width:28%;height:79%;--rotate:2deg}
+   .brand-collage--mood .brand-collage__item--brush{right:7%;bottom:8%;width:31%;height:76%;--rotate:-4deg}
+   .brand-collage--mood .brand-collage__item--buds{left:7%;bottom:8%;width:34%;height:40%;--rotate:2deg}
+   .brand-collage--mood .brand-collage__item--clips{left:23%;top:12%;width:38%;height:33%;--rotate:-5deg}
+   .brand-collage--colors .brand-collage__item--clips{left:7%;top:13%;width:50%;height:55%;--rotate:-5deg}
+   .brand-collage--colors .brand-collage__item--brush{right:8%;bottom:8%;width:31%;height:78%;--rotate:4deg}
    .brand-signature{display:grid;gap:2rem;align-items:center}
    .brand-signature__visual{display:grid;grid-template-columns:1.02fr .98fr;grid-template-rows:1fr 1fr;gap:.72rem;overflow:hidden;border-radius:8px;border:1px solid var(--line);box-shadow:var(--shadow);background:linear-gradient(135deg,#f7f5ee 0%,#ffffff 48%,#e8efe8 100%);padding:.72rem}
    .brand-signature__tile{display:flex;align-items:center;justify-content:center;min-height:205px;margin:0;overflow:hidden;border:1px solid rgba(31,77,64,.12);border-radius:8px;background:#fff}
@@ -241,7 +308,8 @@
  }
  async function fixBrandVisuals(){
   await Promise.all([...document.querySelectorAll('[data-brand-key]')].map(async el=>{
-   const src=brandImages[el.dataset.brandKey]||el.dataset.fallbackImage;
+   if(el.classList.contains('brand-collage')) return;
+   const src=brandVisualSource(el);
    if(!src) return;
    const ok=await testImage(src);
    if(!ok) return;
@@ -256,6 +324,7 @@
   renderSignatureSection();
   hideRepeatedSections();
   injectBrandCardStyles();
+  renderBrandCollages();
   applyCopyOverrides();
   fixBrandVisuals();
   fixProducts();
