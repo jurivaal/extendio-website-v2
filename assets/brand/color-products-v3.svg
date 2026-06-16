@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" viewBox="0 0 1448 1086" role="img" aria-label="Extendio color story">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f1e6"/>
+      <stop offset=".5" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#e8f0e7"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#1f2d27" flood-opacity=".15"/>
+    </filter>
+    <clipPath id="clips"><rect x="260" y="360" width="430" height="330" rx="12"/></clipPath>
+    <clipPath id="brush"><rect x="920" y="210" width="300" height="660" rx="12"/></clipPath>
+  </defs>
+  <rect width="1448" height="1086" fill="url(#bg)"/>
+  <g opacity=".46" stroke="#8aa16f" stroke-width="12" stroke-linecap="round">
+    <path d="M82 90 C164 260 96 430 190 604"/>
+    <path d="M112 184 L242 144"/>
+    <path d="M126 344 L276 306"/>
+    <path d="M1338 635 C1246 802 1290 910 1176 1070"/>
+    <path d="M1282 750 L1408 704"/>
+    <path d="M1236 900 L1378 862"/>
+  </g>
+  <g fill="#ffffff" filter="url(#shadow)">
+    <rect x="260" y="360" width="430" height="330" rx="12"/>
+    <rect x="920" y="210" width="300" height="660" rx="12"/>
+  </g>
+  <image href="../products/hair-clips/en/02.01.jpg" x="260" y="360" width="430" height="330" preserveAspectRatio="xMidYMid meet" clip-path="url(#clips)"/>
+  <image href="../products/hair-brush/en/Main.jpg" x="920" y="210" width="300" height="660" preserveAspectRatio="xMidYMid meet" clip-path="url(#brush)"/>
+  <g transform="translate(170 780)">
+    <circle cx="0" cy="0" r="24" fill="#d9c6ea"/>
+    <circle cx="64" cy="0" r="24" fill="#f09a83"/>
+    <circle cx="128" cy="0" r="24" fill="#f2e7d6"/>
+    <circle cx="192" cy="0" r="24" fill="#1b1719"/>
+  </g>
+</svg>
